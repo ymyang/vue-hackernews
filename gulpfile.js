@@ -7,7 +7,7 @@ gulp.task('clean', () => {
     jetpack.dir('./dist', { empty: true });
 });
 
-gulp.task('webpack', () => {
+gulp.task('build', () => {
     const config = require('./webpack.config.js');
     webpack(config, (err, stats) => {
         if (err) {
@@ -18,7 +18,7 @@ gulp.task('webpack', () => {
     });
 });
 
-gulp.task('dev', () => {
+gulp.task('serve', () => {
     const config = require('./webpack.config.js');
     const server = new WebpackDevServer(webpack(config), {
         //contentBase: 'http://localhost/',
@@ -32,7 +32,7 @@ gulp.task('dev', () => {
             '/v0/*': 'https://hacker-news.firebaseio.com/v0'
         }
     });
-    server.listen('80', 'localhost', (err) => {
+    server.listen('1337', 'localhost', (err) => {
         if (err) {
             console.error('dev:', err);
             return;

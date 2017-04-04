@@ -23,7 +23,7 @@ function createListView (type) {
 }
 
 export default new Router({
-  mode: 'history',
+  mode: 'hash',
   scrollBehavior: () => ({ y: 0 }),
   routes: [
     { path: '/top/:page(\\d+)?', component: createListView('top') },

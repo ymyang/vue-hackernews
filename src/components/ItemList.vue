@@ -22,6 +22,7 @@
 <script>
 import Spinner from './Spinner.vue'
 import Item from './Item.vue'
+import { watchList } from '../store/fetch'
 
 let isInitialRender = true
 

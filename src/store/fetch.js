@@ -1,37 +1,16 @@
-import Firebase from 'firebase/app'
-import 'firebase/database'
+import Vue from 'vue'
+import VueResource from 'vue-resource'
 
-const config = {
-  databaseURL: 'https://hacker-news.firebaseio.com'
-}
-const version = '/v0'
+Vue.use(VueResource);
 
-Firebase.initializeApp(config)
-const api = Firebase.database().ref(version)
+const baseURL = 'https://hacker-news.firebaseio.com/v0'
 
-// import Vue from 'vue'
-// import VueResource from 'vue-resource'
+Vue.http.options.root = baseURL;
 
-// Vue.use(VueResource);
-
-// const baseURL = 'http://127.0.0.1/v0'
-
-// Vue.http.options.root = baseURL;
-
-function fetch (child) {
-  return new Promise((resolve, reject) => {
-      api.child(child).once('value', snapshot => {
-        const val = snapshot.val()
-        resolve(val)
-      }, reject)
-    // Vue.http.get(child).then(response => {
-    //   if (response.status == 200) {
-    //     resolve(response.data)
-    //   } else {
-    //     reject(response)
-    //   }
-    // }, reject)
-  })
+function fetch (path) {
+  return Vue.http.get(`${path}.json`).then(response => {
+      return response.json()
+    })
 }
 
 export function fetchIdsByType (type) {
@@ -48,4 +27,20 @@ export function fetchItems (ids) {
 
 export function fetchUser (id) {
   return fetch(`user/${id}`)
+}
+
+export function watchList (type, cb) {
+  // let first = true
+  // const ref = api.child(`${type}stories`)
+  // const handler = snapshot => {
+  //   if (first) {
+  //     first = false
+  //   } else {
+  //     cb(snapshot.val())
+  //   }
+  // }
+  // ref.on('value', handler)
+  // return () => {
+  //   ref.off('value', handler)
+  // }
 }
