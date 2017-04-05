@@ -27,21 +27,3 @@ router.onReady(() => {
   console.log('mount app');
   app.$mount('#app')
 })
-
-// new Vue(Vue.util.extend({
-//     el: '#app',
-//     router,
-//     store
-// }, App))
-
-// new Vue({ store: stores, router }).$mount('#app')
-
-// new Vue({
-//   el: '#app',
-//   router,
-//   store,
-//   template: '<App/>',
-//   components: { App }
-// })
-
-// router.push('/')
