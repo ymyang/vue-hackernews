@@ -14,7 +14,7 @@ export default {
 }
 </script>
 
-<style lang="less">
+<style lang="less" scoped>
 @offset: 126;
 @duration: 1.4s;
 

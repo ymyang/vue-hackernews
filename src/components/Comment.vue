@@ -36,7 +36,7 @@
     }
 </script>
 
-<style lang="less">
+<style lang="less" scoped>
     .comment-children {
         .comment-children {
             margin-left: 1.5em;

@@ -79,7 +79,7 @@ export default {
 }
 </script>
 
-<style lang="less">
+<style lang="less" scoped>
 .item-view-header {
   background-color: #fff;
   padding: 1.8em 2em 1em;

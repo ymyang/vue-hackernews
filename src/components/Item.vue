@@ -39,7 +39,7 @@ export default {
 }
 </script>
 
-<style lang="less">
+<style lang="less" scoped>
 .news-item {
   background-color: #fff;
   padding: 20px 30px 20px 80px;

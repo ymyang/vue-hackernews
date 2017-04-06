@@ -40,7 +40,7 @@ export default {
 }
 </script>
 
-<style lang="less">
+<style lang="less" scoped>
 .user-view {
   background-color: #fff;
   box-sizing: border-box;
