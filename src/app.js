@@ -14,16 +14,9 @@ Object.keys(filters).forEach(key => {
     Vue.filter(key, filters[key])
 })
 
-const app = new Vue({
+new Vue({
+  el: '#app',
   router,
   store,
   render: h => h(App)
-})
-
-console.log('new app');
-
-router.onReady(() => {
-  // actually mount to DOM
-  console.log('mount app');
-  app.$mount('#app')
 })
